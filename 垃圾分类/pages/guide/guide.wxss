@@ -1,0 +1,19 @@
+/* pages/guide/guide.wxss */
+.guideback{
+  position: relative;
+  width: 100vw;
+}
+.loginbtn{
+  z-index: 1;
+  width: 386rpx;
+  height: 69rpx;
+  background: #65ab31;
+  border-radius: 60rpx;
+  color: #fff;
+  font-family: '黑体';
+  margin: -250rpx auto;
+  /* 文本水平垂直居中 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

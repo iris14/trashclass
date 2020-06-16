@@ -1,0 +1,92 @@
+<!--pages/testscene/testscene.wxml-->
+<view class="all">
+	<!-- 导航栏 -->
+	<view class='nav bg-green' style='height:{{navH}}px'>
+		<view class='nav-title'>
+			答题场景
+			<image src='/images/back.png' mode='aspectFit' class='back' bindtap='navBack'></image>
+		</view>
+	</view>
+	<scroll-view class='overflow' style='height:calc(100vh - {{navH}}px); background:#65ab31' scroll-y>
+		<view class='hidden'>
+			<!-- 内容标题 -->
+			<view class="container-title">{{aTest.plot_name}}测试场景</view>
+			<!-- <image class="container-title" src="/images/恋爱差生测试场景.png"></image> -->
+			<!-- 内容 -->
+			<view class="container">
+				<!-- 内容的部分（全部在一起） -->
+				<!-- <scroll-view class="scroll-container" scroll-y="true"  style="height:1050rpx"> -->
+				<view class="container-toppart">
+					<!-- 故事片段、题目、答案（剧情测试所有内容） -->
+					<view class="story">
+						<!--  wx:for="{{garList}}" -->
+						<!-- 故事片段 -->
+						<p class="textnone">缩进</p>
+						{{aTest.story}}
+					</view>
+					<!-- 题目 -->
+					<view class="question">
+						<image class="butterfly-logo" src="/images/butterfly_btn.png"></image>
+						{{aTest.question}}
+						<!-- 请问<p class="question-key">耳机</p>是什么垃圾？是什么垃圾？是什么垃圾？是什么垃圾？ -->
+					</view>
+					<!-- 答案选项 -->
+					<view class="answers">
+						<view class="answer-option option1" bindtap="selectOption" data-option="易腐垃圾">易腐垃圾（PUTERSCIBLE WASTES）</view>
+						<view class="answer-option option2" bindtap="selectOption" data-option="其他垃圾">其他垃圾（OTHER WASTES）</view>
+						<view class="answer-option option3" bindtap="selectOption" data-option="可回收物">可回收物（RECOVERABLE WASTES）</view>
+						<view class="answer-option option4" bindtap="selectOption" data-option="有害垃圾">有害垃圾（HARMFUL WASTES）</view>
+					</view>
+
+						<!-- 查看科普按钮 -->
+						<view class="science-btn" bindtap="showCard">
+							<image src="/images/diandian3.png" class="diandian"></image>
+							<p class="look-science">查看科普＞</p>
+						</view>
+											<!-- 用户答过此题，本地有缓存，就会显示用户的答案和正确答案。本地没缓存就不显示 -->
+					<view class="{{isShowAnswers?'show-answers':'hide-answers'}}">
+						<view>
+							<view>你的答案：<p class="youyuan">{{userAnswer}}</p></view>
+							<view>正确答案：<p class="youyuan">{{aTest.test_answer}}</p></view>
+						</view>
+					</view>
+					<!-- 最下面的三个按钮：上一题、下一题、结束答题 -->
+					<view class="three-btns">
+						<view class="last-btn" bindtap="toLastTest">上一题</view>
+						<view class="next-btn" bindtap="toNextTest">下一题</view>
+						<view class="stop-btn" bindtap="navBack">结束答题</view>
+					</view>
+
+
+					<!-- 答错时，弹出的卡片：典典的提示和趣味科普 -->
+					<view class="popup-card {{ isShowCard?'show-card':'hide-card' }}">
+						<view class="card-part">
+							<view class="close">
+								<image class="close-card" src="/images/RectangleCopy.png" bindtap="hideCard"></image>
+							</view>
+							<!-- 卡片的文字内容 -->
+							<view class="card-text">
+								<!-- 典典提示 -->
+								<view class="hint">典典提示：这是{{aTest.test_answer}}</view>
+								<!-- 蝴蝶logo -->
+								<image class="butterfly-logo" src="/images/butterfly_btn.png"></image>
+								<!-- 典典科普标题 -->
+								<view class="science-title">典典趣味科普</view>
+								<!-- 典典科普内容 -->
+								<view class="science-content">
+									{{aTest.science}}
+								</view>
+								<!-- 下一题的按钮 -->
+								<view class="nextline">
+									<view class="card-next-btn" bindtap="toNextTest">下一题</view>
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+				<!-- </scroll-view> -->
+			</view>
+		</view>
+
+	</scroll-view>
+</view>

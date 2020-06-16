@@ -1,0 +1,23 @@
+<!--pages/userfeedback/userfeedback.wxml-->
+<view>
+  <!-- 标题行 -->
+  <view class='nav bg-green' style='height:{{navH}}px'>
+    <view class='nav-title'>
+      <image src='/images/back.png' mode='aspectFit' class='back' bindtap='navBack'></image>
+      用户反馈
+    </view>
+  </view>
+  <scroll-view class='overflow' style='height:calc(100vh - {{navH}}px)' scroll-y>
+    <view class='hidden'>
+      <view class="new">新建反馈</view>
+      <!-- 文本框 -->
+      <input type="text" value="{{title}}" bindinput="inputTitle" placeholder="请输入反馈标题" class="input-title" />
+      <input type="text" value="{{contact}}" bindinput="inputContact" placeholder="请输入联系方式(邮箱或手机号码)" class="input-contact" />
+      <textarea value="{{content}}" bindinput="inputContent" placeholder="请输入反馈内容" class="input-context" />
+
+      <view class="note">我们将积极处理您反馈的意见</view>
+      <!-- 提交按钮 -->
+      <button type="primary" class="submit-btn"  bindtap="submitFeedback" style="width: 96%; background-color: #65ab31; font-weight: normal;">提交反馈</button>
+    </view>
+  </scroll-view>
+</view>

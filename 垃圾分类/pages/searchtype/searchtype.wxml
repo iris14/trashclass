@@ -1,0 +1,37 @@
+<!--pages/searchtype/searchtype.wxml-->
+<view>
+  <view class='nav bg-green' style='height:{{navH}}px'>
+    <view class='nav-title'>
+      搜索结果
+      <image src='/images/back.png' mode='aspectFit' class='back' bindtap='navBack'></image>
+    </view>
+  </view>
+
+  <scroll-view class='overflow' style='height:calc(100vh - {{navH}}px); background:#65ab31'>
+    <view class='hidden'>
+      <!-- 内容 -->
+      <view class="context1">
+        <view class="context2">
+          <view class="context3">
+            <image class="typeImg" src="{{typeImg}}"></image>
+            <view class="typeContent">
+              <view class="typeKey">
+                {{grabageName}}属于{{grabageType}}
+              </view>
+              <view class="typeIntroduce">
+                <text class="textNone">介绍</text>{{typeIntroduce}}
+              </view>
+              <view class="typeThrow">
+                <view class="throwTitle">投放要求：</view>
+                {{typeThrow}}
+              </view>
+            </view>
+            <view class="moreType" bindtap="switchClassify">
+              了解更多此类别垃圾
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

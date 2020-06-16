@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看详情</title>
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/xadmin.css">
+    <script type="application/javascript" src="lib/layui/layui.js"></script>
+    <script type="application/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="application/javascript" src="js/xadmin.js"></script>
+</head>
+<body>
+    <div class="layui-anim layui-anim-up layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li id="use">用途</li>
+            <li id="img">图片</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-elem-quote layui-tab-item  " id="text">
+
+            </div>
+            <div class="layui-tab-item" >
+                <img src="" alt="" id="image">
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $.getUrlParam=function (name) {
+            var reg=new RegExp("(^|&)"+name+"=([^&]*)(&|$)");
+            var r=window.location.search.substr(1).match(reg);
+            if(r!=null)return unescape(r[2]);return null;
+        }
+        var id=$.getUrlParam('sever_id');
+        $.ajax({
+            type:'GET',
+            url:'/../controller/getServerInfo.php',
+            data:{server_id:id},
+            dataType:'json',
+            success:function (data) {
+                if(data.status=='ok'){
+                    data=data.data;
+                    $('#text').text(data[0].purpose);
+                    $('#image').attr('src',data[0].sever_img)
+                    if($.getUrlParam('text')=="true"){
+                        $('#use').addClass('layui-this');
+                        $('#text').addClass('layui-show');
+                    }else{
+                        $('#img').addClass('layui-this');
+                        $('#image').addClass('layui-show');
+                        // console.log(data[0].sever_img);
+                    }
+                }
+            },
+            error:function (xmlhttp,msg,http) {
+                console.log(xmlhttp.status);
+            }
+        })
+        //
+    });
+</script>
+</html>

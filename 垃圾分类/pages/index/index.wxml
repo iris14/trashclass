@@ -1,0 +1,69 @@
+<!--index.wxml-->
+<view>
+  <!-- 导航 -->
+  <view class='nav bg-green' style='height:{{navH}}px'>
+    <view class='nav-title'>
+      垃圾分类趣宝典
+      <view class="search" bindtap="dispath5">
+        <image src="/images/search.png" mode='aspectFit' class='search-icon'></image>
+        <view class="search-text">搜索</view>
+      </view>
+      <view class="feedback" bindtap="dispath6">
+        <image src="/images/feedback.png" mode="aspectFit" class="feedback-icon"></image>
+        <view class="feedback-text">帮助</view>
+      </view>
+    </view>
+  </view>
+  <scroll-view class='overflow' style='height:calc(100vh - {{navH}}px); background:#f0f0f0' scroll-y>
+    <view class='hidden'>
+    <!--背景图片-->
+      <image mode="widthFix" class="homepageimage" src="/images/indexbackground.png"></image>
+      <view class="container">
+        <view class="content">
+          <!-- 问候语 -->
+          <view class="greet">{{time}}<open-data type="userNickName"></open-data></view>
+          <!-- 每日一句 -->
+          <view class="note" bindtap="showNote">你们的舍弃却是我的最爱，它们在这里找到了归宿。</view>
+          <!--典典-->
+          <image class="diandian" bindtap="dailyImage" src="/images/diandian.png"></image>
+          <!--每日一句卡片-->
+          
+          <view class="noteCover {{isNoteTrue?'isNoteShow':'isNoteHide'}}">
+            <!--卡片块-->
+            <view class="noteBlock">
+              <!--关闭键-->
+              <image src='/images/RectangleCopy.png' class='noteHide' bindtap='hideNote'></image>
+              <!--每日图片-->
+              <image src='{{noteImg}}' class="noteImg" ></image>
+              <!-- <view class="noteText">{{noteSentc}}   {{noteAto}}</view> -->
+            </view>
+          </view>
+
+          <!-- 垃圾分类 -->
+          <view class="classify">
+            <view class="putrescible" bindtap="dispath1">{{garbageName1}}
+            PUTERSCIBLE
+            WASTES </view>
+            <view class="other" bindtap="dispath2">{{garbageName2}}
+            OTHER
+            WASTES
+            </view>
+            <view>
+            <!--拍照识别按钮-->
+              <image class="compass" bindtap="cameraBtn" src="/images/photo2.png"></image>
+            </view>
+            <view class="recoverable" bindtap="dispath3">{{garbageName3}}
+            RECOVERABLE
+            WASTES
+            </view>
+            <view class="harmful" bindtap="dispath4">{{garbageName4}}
+            HARMFUL
+            WASTES
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </scroll-view>
+</view>

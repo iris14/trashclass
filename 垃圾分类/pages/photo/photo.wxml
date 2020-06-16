@@ -1,0 +1,52 @@
+<!--pages/photo/photo.wxml-->
+<view>
+	<view class='nav bg-green' style='height:{{navH}}px'>
+		<view class='nav-title'>
+			拍照识别
+			<image src='/images/back.png' mode='aspectFit' class='back' bindtap='navBack'></image>
+		</view>
+	</view>
+	<scroll-view class='overflow' style='height:calc(100vh - {{navH}}px); background:#2c2c2c'>
+		<view class='hidden'>
+			<!--相机-->
+			<view class="{{showCamera}}">
+				<camera device-position="{{device?'back':'front'}}" flash="off" binderror="error" style="width: 100vw; height: 75vh;"></camera>
+				<!--前后置转换-->
+				<cover-image class="cover-4" src="/images/zhuanhuan.png" bindtap="devicePosition"></cover-image>
+				<!--相册-->
+				<cover-image class="album" src="/images/album.png" bindtap="albumSelected"></cover-image>
+				<!--拍照按钮-->
+			<view class="cameraBtn">
+				<image src="/images/paizhao.png" bindtap="takePhoto" style="width:150rpx; height:150rpx;"></image>
+			</view>
+			</view>
+			<!--显示拍到的照片-->
+			<view class="{{btnDown}}">
+				<image wx:if="{{src}}" mode="widthFix" src="{{src}}" style="width:100vw;"></image>
+			</view>
+			
+		</view>
+		<!--识别结果块-->
+		<view class="noteCover {{isNoteTrue?'isNoteShow':'isNoteHide'}}">
+			<!--卡片块-->
+			<view class="noteBlock">
+				<!--关闭键-->
+				<image src='/images/RectangleCopy_white.png' class='noteHide' bindtap='hideNote'></image>
+				<!--识别结果-->
+				<image src="/images/diandian2.png" style="width:100rpx; height:88rpx; margin-top:30rpx"></image>
+				<view class="regTitle"> 识别结果</view>
+				<view wx:if="!{{isNull}}">
+					<view class="" wx:for="{{regResult}}" wx:key="item">
+						<view class="regRes" id="{{item.typeid}}" bindtap="switchToClassify">
+							<view>{{item.root}} {{item.keyword}}</view>
+							<view>★{{item.typename}}</view>
+						</view>
+					</view>
+				</view>
+				<view class="noTypename" wx:if="{{isNull}}">
+					请尝试重新拍照，典典没有识别出此垃圾的类别。
+				</view>
+			</view>
+		</view>
+	</scroll-view>
+</view>

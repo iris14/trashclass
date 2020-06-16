@@ -1,0 +1,2 @@
+<!--pages/tweet/tweet.wxml-->
+<web-view src="{{serveUrl}}"></web-view>

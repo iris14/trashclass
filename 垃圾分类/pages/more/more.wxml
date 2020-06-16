@@ -1,0 +1,39 @@
+<!--pages/more/more.wxml-->
+<view>
+  <view class='nav bg-green' style='height:{{navH}}px'>
+    <view class='nav-title'>
+      {{typename}}
+    </view>
+  </view>
+  <scroll-view class='overflow' style='height:calc(100vh - {{navH}}px); background:#65ab31' scroll-y>
+    <view class='hidden'>
+      <!--图片按钮-->
+      <view class="imgbtn">
+        <image src="/images/serve.png" class="{{btn1}}" bindtap="servePath"></image>
+        <image src="/images/product.png" class="{{btn2}}" bindtap="productPath"></image>
+      </view>
+      <!-- 图片按钮end-->
+      <!--外框-->
+      <view class="container" id="containerH">
+        <view class="type">{{typename}}</view>
+        <!--标题-->
+        <!--所有服务/产品-->
+        <view class="content">
+          <view class="serpro"  wx:for="{{spList}}" wx:key="item">
+          <view>
+            <image id="{{item.sever_id}}" bindtap="severUrlBtn" src="{{item.sever_img}}" class="spimg"></image>
+            <view class="spcontent">
+              <view id="{{item.sever_id}}" bindtap="severUrlBtn" class="name">{{item.sever_name}}<view style="text-align: right; color:green; margin-top:-30rpx;">>>></view> </view>
+              <view id="{{item.sever_id}}" bindtap="severUrlBtn" class="introduce">{{item.purpose}}</view>
+            </view>
+            </view>
+          </view>
+           
+        </view>
+        <!--content end-->
+      </view>
+      <!--外框end-->
+    </view>
+
+  </scroll-view>
+</view>

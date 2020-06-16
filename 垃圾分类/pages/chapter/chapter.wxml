@@ -1,0 +1,23 @@
+<!--pages/chapter/chapter.wxml-->
+<!-- 导航 -->
+<view>
+  <view class='nav bg-green' style='height:{{navH}}px'>
+    <view class='nav-title'>
+      {{topicName}} <!--导航标题-->
+      <image src='/images/back.png' mode='aspectFit' class='back' bindtap='navBack'></image> <!--返回键-->
+    </view>
+  </view>
+
+  <scroll-view class='overflow' style='height:calc(100vh - {{navH}}px);' scroll-y>
+    <view class='hidden'>
+    <view class="container">
+    <!--获取漫画-->
+      <view wx:for="{{imgList}}" wx:key="item">
+        <image  id="{{item.cartoon_id}}" mode="widthFix" src="{{item.cartoon_img}}" style="width:100vw;" bindtap="topic_preview" data-url="{{item.cartoon_img}}"></image>
+      </view>
+      <!--下一版块按钮-->
+    <button size="mini" class="chapterBtn" bindtap="toNextChapter" >下一版块</button>
+    </view>
+    </view>
+  </scroll-view>
+</view>

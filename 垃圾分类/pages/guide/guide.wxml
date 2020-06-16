@@ -1,0 +1,9 @@
+<!--pages/guide/guide.wxml-->
+<!--背景图片-->
+<image mode="widthFix" class="guideback" src="/images/guideback.png"></image>
+<!-- 需要使用 button 来授权登录 -->
+
+<!--开始体验按钮  open-type表示微信开放能力-->
+<button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="onAuth" class="loginbtn">开始体验</button>
+<!--版本不支持时-->
+<view wx:else>请升级微信版本</view>

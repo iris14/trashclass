@@ -1,0 +1,74 @@
+<!--pages/voice/voice.wxml-->
+<view>
+	<!-- 标题行 -->
+	<view class='nav bg-green' style='height:{{navH}}px'>
+		<view class='nav-title'>
+			<image src='../../images/back.png' mode='aspectFit' class='back' bindtap='navBack'></image>
+			搜索
+		</view>
+	</view>
+	<scroll-view class='overflow' style='height:calc(100vh - {{navH}}px)' scroll-y>
+		<view class='hidden'>
+			<view class="searchTool" style=" position:fixed;">
+				<!-- 搜索框 -->
+				<view class="searchBox">
+					<view class="searchIcon">
+						<image class="iconImage" mode="widthFix" src='/images/searchIcon.png'></image>
+					</view>
+					<input type="text" name="id" value="{{inputValue}}" bindconfirm="formSubmit" bindinput="formSubmit" placeholder="请输入垃圾名称" search="{{formSubmit}}" />
+				</view>
+				<!-- 取消按钮 -->
+				<view class="cancel" bindtap="cancelBack">
+					取消
+				</view>
+				<!--语音识别按钮-->
+				<!-- <view>
+					<image class="voice" src="/images/yuyin.png" bindtap="start"></image>
+				</view> -->
+			</view>
+
+			<!-- 显示搜索到的垃圾 -->
+			<view style="margin-top:200rpx">
+				<view wx:for="{{garSearchList}}" wx:key="item">
+					<!-- garbageName -->
+					<view id="{{item.gar_id}}" class="{{searchGar}}" bindtap="tosearchtype">{{item.gar_name}}</view>
+				</view>
+			</view>
+			<!-- 显示搜索不到此垃圾 -->
+			<view class="{{noGarbage}}">
+				搜索不到此垃圾名
+			</view>
+
+			<view style="margin-top:100rpx">
+				<!-- 语音识别长按键 -->
+				<view class="{{voiceBtn}}" bindtouchstart="touchStart" bindtouchend="touchEnd">
+					<!-- <view class="{{voice"> -->
+					<image class="{{voiceStyle}}" src="/images/voice.png"></image>
+					<text>长按说话</text>
+					<!-- </view> -->
+					<!-- <view wx:else="{{recordState}}">
+						<image class="voiceStyle" src="/images/stop.png"></image>
+						<text>松开结束</text>
+					</view> -->
+					<!-- 提示正在录音-->
+					<!-- <cover-view class="startVoiceImage" wx:if="{{recordState == true}}">
+          <cover-image src="/image/tip.png"></cover-image>
+          <cover-view>开始录音</cover-view>
+        </cover-view> -->
+				</view>
+				<!-- 显示热搜垃圾 -->
+				<!-- <view class="{{hotSearchGar}}" wx:for="{{garList}}" wx:key="item">
+          <view class="gartypeName" id="{{item[0].type_id}}" bindtap="switchToClassify">
+            {{item[0].type_name}}
+          </view>
+          <view class="allGarName">
+            <view class="garName" id="{{item[0].gar_id}}" bindtap="switchToSearchtype">{{item[0].gar_name}}</view>
+            <view class="garName" id="{{item[1].gar_id}}" bindtap="switchToSearchtype">{{item[1].gar_name}}</view>
+            <view class="garName" id="{{item[2].gar_id}}" bindtap="switchToSearchtype">{{item[2].gar_name}}</view>
+          </view>
+        </view> -->
+			</view>
+
+		</view>
+	</scroll-view>
+</view>

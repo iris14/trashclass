@@ -1,0 +1,130 @@
+<!--pages/softintroduce/softintroduce.wxml-->
+<view>
+  <!-- 标题行 -->
+  <view class='nav bg-green' style='height:{{navH}}px'>
+    <view class='nav-title'>
+      <image src='/images/back.png' mode='aspectFit' class='back' bindtap='navBack'></image>
+      软件介绍
+    </view>
+  </view>
+  <scroll-view class='overflow bg' style='height:calc(100vh - {{navH}}px)' scroll-y>
+    <view class='hidden'>
+    <!-- banner开始 -->
+      <view>
+        <image src="/images/introduceBanner.png" class="banner" mode="widthFix"></image>
+      </view>
+    <!-- banner结束 -->
+    <!-- 查询开始 -->
+      <view class="box">
+      <!-- 标题和图片 -->
+        <view class="biao">
+          【查询】           
+          <view class="display">
+            <image src="/images/introsearch.png" class="all-image"></image>
+            <image src="/images/introphoto.png" class="all-image"></image>
+            <image src="/images/introyuyin.png" class="all-image"></image>
+          </view>
+        </view>
+        <!-- 小文字 -->
+        <view class="wen">
+          典典提供了文字搜索，语音识别、拍照识别三种方式，满足你每时每刻的垃圾分类查询需求。
+        </view>
+      </view>
+    <!-- 查询结束 -->
+    <!-- 每日一句开始 -->
+      <view class="box">
+      <!-- 标题和图片 -->
+        <view class="biao">
+          【每日一句】           
+          <view class="display ">
+            <image src="/images/diandian.png" class="all-image"></image>
+          </view>
+        </view>
+        <!-- 小文字 -->
+        <view class="wen">
+          典典在繁杂的世界中，留了一处静谧的文字世界给你，这一句，或让你沉思；这一句，或让你认同；这一句，或能让你真正了解垃圾分类的意义所在。
+        </view>
+      </view>
+    <!-- 每日一句结束 -->
+    <!-- 热搜榜开始 -->
+      <view class="box">
+      <!-- 标题和图片 -->
+        <view class="biao">
+          【热搜榜】           
+          <view class="display">
+            <image src="/images/hotIcon.png" class="all-image"></image>
+          </view>
+        </view>
+        <!-- 小文字 -->
+        <view class="wen">
+          搜索按钮里的热搜榜为你提供目前各类垃圾类别用户搜索的top前三，这些可都是大家都记不住的垃圾分类“考点”知识，点一点，就能get！
+        </view>
+      </view>
+    <!-- 热搜榜结束 -->
+    <!-- 剧情开始 -->
+      <view class="box">
+      <!-- 标题和图片 -->
+        <view class="biao">
+          【剧情】           
+          <view class="display">
+            <image src="/images/introjieshao.png" class="all-image"></image>
+          </view>
+        </view>
+        <!-- 小文字 -->
+        <view class="wen">
+          测一测你知道什么垃圾的分类吧！乘着每一条剧情故事线的火车，看着路上的风景，进行着垃圾分类的小测验，有时答案并不重要，旅途风景很美，你会心一笑，就好。
+        </view>
+      </view>
+    <!-- 剧情结束 -->
+    <!-- 漫画开始 -->
+      <view class="box">
+      <!-- 标题和图片 -->
+        <view class="biao">
+          【漫画】           
+          <view class="display">
+            <image src="/images/intromanhua .png" class="all-image"></image>
+          </view>
+        </view>
+        <!-- 小文字 -->
+        <view class="wen">
+          你是否想过我们为什么要垃圾分类？你是否真的支持垃圾分类？基于诸如此类的问题，典典为你开设了一档节目：《典典说垃圾》，本期节目的主题是“垃圾围城，真的有用吗？”，精彩且干货满满，快去看看吧。
+        </view>
+      </view>
+    <!-- 漫画结束 -->
+    <!-- 服务集结站开始 -->
+      <view class="box">
+      <!-- 标题和图片 -->
+        <view class="biao">
+          【服务集结站】           
+          <view class="display">
+            <image src="/images/intromore.png" class="all-image"></image>
+          </view>
+        </view>
+        <!-- 小文字 -->
+        <view class="wen">
+          什么？你所在的城市“猝不及防”的开始强制实行垃圾分类？什么都没准备好？别慌别慌，典典在服务集结站给你准备了如今垃圾分类的相关服务和产品，例如垃圾代收服务，二手物品回收服务等，为你省去多平台查询了解的麻烦。
+        </view>
+      </view>
+    <!-- 服务集结站结束 -->
+    <!-- 帮助开始 -->
+      <view class="box">
+      <!-- 标题和图片 -->
+        <view class="biao">
+          【帮助】           
+          <view class="display">
+            <image src="/images/introfeedback.png" class="all-image"></image>
+          </view>
+        </view>
+        <!-- 小文字 -->
+        <view class="wen">
+          如果你有什么对我们小程序的意见和建议，欢迎你为我们反馈。有你的建议和支持，我们一定会变得更优秀的。希望你在“垃圾分类趣宝典”中，玩的开心，用的开心。
+        </view>
+      </view>
+    <!-- 帮助结束 -->
+   <view class="bottom-wei">
+    <view class="bottom-wei1 bottom-center">垃圾分类趣宝典</view>
+    <view class="bottom-wei2 bottom-center">典典让垃圾分类变得有趣</view>
+   </view>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,15 @@
+<!--pages/cartoon/cartoon.wxml-->
+<view>
+  <view class='nav bg-green' style='height:{{navH}}px'>
+    <view class='nav-title'>
+      漫画
+    </view>
+  </view>
+  <scroll-view class='overflow' style='height:calc(100vh - {{navH}}px); background:#65ab31;' scroll-y>
+    <view class='hidden'>
+    <view class="content" wx:for="{{cartoonList}}" wx:for-index="idx" wx:for-item="items" wx:key="*this">
+     <image class="cartoonImg" src="../../images/{{items.topic_img}}"  mode="widthFix" bindtap="chapterPath" data-index="{{items.topic_id}}"></image>
+    </view>
+    </view>
+  </scroll-view>
+</view>

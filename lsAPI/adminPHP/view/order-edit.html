@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="./css/xadmin.css">
+    <script src="./lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/xadmin.js"></script>
+    <script type="application/javascript" src="./js/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<div class="layui-container">
+    <div class="layui-row">
+        <div class="layui-col-lg12">
+            <form class="layui-form" lay-filter="serverinfo">
+                <div class="layui-form-item">
+                    <label for="" class="layui-form-label">服务名称：</label>
+                    <div class="layui-input-block">
+                        <input type="text" placeholder="请输入服务名称" autocomplete="off" class="layui-input" id="server_name" name="server_name">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="" class="layui-form-label">服务类型：</label>
+                    <div class="layui-input-block">
+                        <select name="server_type" id="server_type" lay-verify="" lay-filter="server_type">
+                            <option value="1" selected>服务</option>
+                            <option value="2">产品</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="" class="layui-form-label">平台（品牌）：</label>
+                    <div class="layui-input-block">
+                        <input type="text" placeholder="请输入平台或品牌名" autocomplete="off" class="layui-input" id="terrace" name="terrace">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="" class="layui-form-label">用途：</label>
+                    <div class="layui-input-block">
+                        <textarea name="purpose" id="purpose" cols="30" rows="10" placeholder="请输入用途" class="layui-textarea" id="purpose" name="purpose"></textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="" class="layui-form-label">选择图片：（选定则上传到服务器端）</label>
+                    <div class="layui-input-block">
+                    <button type="button" class="layui-btn" id="image"><i class="layui-icon">&#xe67c</i>上传照片</button>
+                            <hr>
+                            <img src="" style="max-width: 196px" id="image1">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button type="button" class="layui-btn" id="sum-submit">提交</button>
+                        <button class="layui-btn layui-btn-primary" type="reset">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+<script>
+    $(function () {
+
+    layui.use(['form','upload'],function () {
+        var form=layui.form;
+        var upload=layui.upload;
+        $.getUrlParam = function (name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+        //从数据库中取值,ajax开始
+        var id = $.getUrlParam('sever_id');
+        var img_sec;
+        var src;
+        $.ajax({
+            type: 'GET',
+            url: '/../controller/getServerInfo.php',
+            data:{server_id:id},
+            dataType:'json',
+            success:function (data) {
+                data=data.data;
+                form.val('serverinfo',{
+                    'server_name':data[0].sever_name,
+                    'terrace':data[0].terrace,
+                    'purpose':data[0].purpose,
+                    'server_type':data[0].sever_type,
+                });
+                $('#image1').attr('src',data[0].sever_img);
+                $src=data[0].sever_img;
+            }
+        });
+        //ajax结束
+
+        upload.render({
+            elem: '#image'
+            ,type:'POST'
+            ,url: '../controller/addPictures.php?edit=true&src='.$src //改成您自己的上传接口
+            ,done: function(res){
+                // layer.msg('上传成功');
+                img_src=res.data;
+                layui.$('#image1').attr('src', res.data);
+                console.log(img_src);
+            }
+    });
+        layui.$('#sum-submit').on('click',function () {
+            $.ajax({
+                type:'GET',
+                url:'../controller/UpdateSeverInfo.php',
+                data:{
+                    severImg: img_src ,
+                    severType:$('#servertype').val(),
+                    severName:$('#servername').val(),
+                    terrace:$('#terrace').val(),
+                    purpose: $('#purpose').val()
+                },
+                dataType:'json',
+                success:function (data) {
+                    console.log(data);
+                    if(data.status=='ok'){
+                        layer.msg('服务修改成功,'+data.message);
+                    }else{
+                        layer.msg('服务修改失败,'+data.message);
+                    }
+                },
+                error:function () {
+                    // console.log('error');
+                }
+            });
+        });
+    });
+        });
+</script>

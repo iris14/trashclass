@@ -1,0 +1,120 @@
+/* pages/searchtype/searchtype.wxss */
+/*自定义导航*/
+.nav{
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.nav-title{
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  font-family:PingFang-SC-Medium;
+  color: #fff;
+  font-size:30rpx;
+  letter-spacing:2px;
+}
+.nav .back{
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px 15px;
+}
+.bg-green{
+  background-color: #65ab31;
+}
+.overflow{
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.hidden{
+  overflow: hidden;
+}
+/***********************************/
+
+/* 以下是页面内容的样式 */
+.context1{
+  /* 最外层 */
+  height:1210rpx;
+  padding-top:80rpx;
+  width:100%;
+  background:#65AB31;
+}
+.context2{
+  /* 第二层 */
+  height:941rpx;
+  width:643rpx;
+  padding-top:50rpx;
+  background:#598E32;
+  margin:0 auto;
+}
+.context3{
+  /* 最里层，即有字有内容的那一层 */
+  font-weight:bold;
+  height:891rpx;
+  width:543rpx;
+  background:#BEDCA9;
+  margin:0 auto;
+  position:relative;
+}
+.typeImg{
+  /* 类别图片 */
+  width:114rpx;
+  height:114rpx;
+  position:absolute;
+  top:50rpx;
+  left:214.5rpx;
+}
+.typeContent{
+  /* 下面的所有介绍此类别的文字内容 */
+  position:absolute;
+  top:180rpx;
+  left:50rpx;
+}
+.typeKey{
+  /* 垃圾归属说明 */
+  font-size:30rpx;
+  color:#65AB31;
+  padding-bottom:20rpx;
+  text-align: center;
+  width:443rpx;
+}
+.textNone{
+  /* 文字隐藏，即首行缩进两位 */
+  color:transparent;
+}
+.typeIntroduce{
+  /* 类别介绍 */
+  font-size:26rpx;
+  width:443rpx;
+}
+.typeThrow{
+  /* 类别的投放要求 */
+  font-size:26rpx;
+  width:443rpx;
+}
+.throwTitle{
+  /* 投放要求标题 */
+  color:#65AB31;
+  font-size:30rpx;
+  padding-top:20rpx;
+}
+.moreType{
+  /* 了解更多类别 */
+  color:#65AB31;
+  font-size:30rpx;
+  text-decoration:underline;
+  position:absolute;
+  bottom:30rpx;
+  right:30rpx;
+}

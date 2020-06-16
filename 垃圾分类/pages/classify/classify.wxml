@@ -1,0 +1,58 @@
+<!--pages/classify/classify.wxml-->
+<view>
+  <view class='nav bg-green' style='height:{{navH}}px'>
+    <view class='nav-title'>
+      {{typeName}}
+      <image src='/images/back.png' mode='aspectFit' class='back' bindtap='navBack'></image>
+    </view>
+  </view>
+  <scroll-view class='overflow' style='height:calc(100vh - 100rpx); background:#65ab31' scroll-y >
+    <view class='hidden'>
+      <view class="container">
+        <view class="content"  id="contentH">
+          <!--分类标识-->
+          <image class="img" src="{{imgUrl}}"></image>
+          <!--介绍-->
+          <view class="introduce" id="viewHeight"> {{typeIntroduce}}
+           <view style="margin-top:10rpx">
+           <text style="color:#65ab31">投放要求：</text>
+           {{throwRequirement}}</view>
+          </view>
+          <!--介绍end-->
+          <!--此分类所有垃圾-->
+          <scroll-view  class="rubbish" style="height:1000rpx;" scroll-into-view="{{toViewId}}" scroll-y="true" >
+            <block wx:for="{{garList}}" wx:key="item.kind">
+             <view class="tit" >{{item.kind}}</view><!-- 左边以隔开信息的字母 -->
+              <view class='box' id="{{item.kind}}"><!-- 每个字母下的分区 -->
+              <!-- 每个信息 -->
+                <view class="item" wx:for="{{item.entitys}}" wx:for-item="itemJ" wx:key="*itemJ">
+                  <view class="item_info">{{itemJ.gar_name}}</view>
+                </view>
+              <!--li-->
+             </view>
+            </block>
+          </scroll-view>
+          <!--此分类垃圾结束-->
+          <!--字母表-->
+          <scroll-view scroll-y="true" class="alphabet" style="height:890rpx; margin-top:-1000rpx; ">
+            <view class="alp" wx:for="{{arrIdArr}}" wx:for-item="item" wx:key="index" id="{{item}}"    catchtouchstart="handleTouchstart" catchtouchend="handleTouchend">
+            {{item}}
+            </view>
+          </scroll-view>
+          <!--字母表结束-->
+        </view>
+      </view>
+    </view>
+    <!-- 选中屏幕中间提示 -->
+    <view class="index-name" wx:if="{{indexShow}}">{{indexEnglish}}</view>
+     
+  </scroll-view>
+     <!--跳转分类按钮-->
+      <view class="btnclass">
+        <view class="{{btn1}}" bindtap="dispath1">易腐垃圾</view>
+        <view class="{{btn2}}" bindtap="dispath2">其他垃圾</view>
+        <view class="{{btn3}}" bindtap="dispath3">可回收垃圾</view>
+        <view class="{{btn4}}" bindtap="dispath4">有害垃圾</view>
+      </view>
+      <!--跳转按钮end-->
+</view>

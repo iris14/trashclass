@@ -1,0 +1,71 @@
+<!--pages/test/test.wxml-->
+<view>
+  <!-- 导航栏 -->
+  <view class='nav bg-green' style='height:{{navH}}px'>
+    <view class='nav-title'>
+      剧情测试
+    </view>
+  </view>
+  <scroll-view class='overflow' style='height:calc(100vh - {{navH}}px);' scroll-y>
+    <view class='hidden'>
+      <!-- 上面的全部内容 -->
+      <view class="top">
+        <!-- 内容标题 -->
+        <view class="container-title">趣味垃圾分类测试说明</view>
+        <!-- 内容上面的部分：文字和图 -->
+        <view class="container-toppart">
+          <!-- 欢迎文字 -->
+          <view class="welcome-text">
+            <p class="cycle">●</p>欢迎进入垃圾分类趣味测试，请选择不同主题进入故事场景，在故事中，你会遇到不同的垃圾，请选择正确的垃圾类别进行投放。
+          </view>
+          <!-- 测试图标图片 -->
+          <image class="test-icon" src="/images/testIcon.png"></image>
+        </view>
+      </view>
+
+      <!-- 下面的全部内容 -->
+      <view class="bottom" wx:for="{{garList}}" wx:for-index="idx" wx:for-item="items" wx:key="*this">
+        <!-- 场景 -->
+        <view class="all-scene">
+          <!-- 标题 -->
+          <view class="all-topic">
+            场景<p class="all-plotname">{{items.plot_name}}</p>
+          </view>
+          <!-- 简介内容、头像、进入按钮 -->
+          <view class="all-content">
+            <!-- 简介内容 -->
+            <view class="all-intro">
+              <p class="text-none">缩进</p>{{items.plot_intro}}
+            </view>
+            <!-- 头像和进入按钮 -->
+            <view class="img-btn">
+              <!-- 头像 -->
+              <image class="all-img" src="/images/{{items.plot_img}}"></image>
+              <!-- 进入按钮 -->
+              <button class="enter-btn" bindtap="totestpath" data-index="{{items.plot_id}}" type="primary" style="width: 160rpx; height: 75rpx; background-color: #65ab31; font-weight: normal;font-size: 30rpx;">进入</button>
+            </view>
+          </view>
+        </view>
+
+      </view>
+      
+        
+
+          <!-- 内容下面的部分：蝴蝶 -->
+          <!-- <view wx:for="{{garList}}" wx:for-index="idx" wx:for-item="items" wx:key="*this">    -->
+          <!-- 此处的下标变量名修改为 idx，数组当前项的变量名修改为 items -->
+            <!-- <view class="butterfly">    -->
+              <!-- <image class="butterImg" src="/images/butterfly_btn.png"></image> -->
+              <!-- <view wx:for="{{items}}" wx:key="*this">    -->
+              <!-- 此处的下标变量名默认为 index，数组当前项的变量名默认为item -->
+                <!-- <view class="fly-title{{index+1}}" bindtap="totestpath" data-index="{{item.plot_id}}"> -->
+                  <!-- {{item.plot_name}} -->
+                <!-- </view> -->
+              <!-- </view> -->
+            <!-- </view> -->
+          <!-- </view> -->
+  
+    </view>
+  </scroll-view>
+</view>
+

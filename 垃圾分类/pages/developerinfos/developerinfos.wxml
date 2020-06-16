@@ -1,0 +1,155 @@
+<!--pages/developerinfos/developerinfos.wxml-->
+<view>
+  <!-- 标题行 -->
+  <view class='nav bg-green' style='height:{{navH}}px'>
+    <view class='nav-title'>
+      <image src='/images/back.png' mode='aspectFit' class='back' bindtap='navBack'></image>
+      开发者信息
+    </view>
+  </view>
+  <scroll-view class='overflow' style='height:calc(100vh - {{navH}}px)' scroll-y>
+    <view class='hidden'>
+      <!-- 典典的故事和介绍 -->
+      <view class="dian-story">
+        <view class="head-title">
+          开发者信息（4人）  
+        </view>
+        <view class="story">
+          起初，“四金少女”怀揣着对社会做点有意义的事的小小念头，在了解到如今垃圾分类的风头渐渐减小，人们对国家垃圾分类相关政策的不满，“四金少女”搭乘上了垃圾分类的末班车，拉上了典典，倾情推出了这款小程序。希望让能看到渺小我们的有缘人，对国家的垃圾分类政策多一点支持，我们或许在这个阶段，还看不见垃圾分类的效果，但是作为和国家跨出第一步的我们，应该支持和配合。以下是“四金少女”+典典的介绍信息：
+        </view>
+        <view class="diandian">
+          典典：2020年4月24日，在“四金少女”手忙脚乱的接生下，来到这个世界。是不定期更新节目：《典典说垃圾》的主持人，是垃圾分类趣宝典的镇家之宝。
+        </view>
+      </view>
+      <!-- 四位开发者的信息 -->
+      <!-- 第一个 -->
+      <view class="all-person">
+        <!-- 开发者基本信息 -->
+        <view bindtap="showOrHideDetail1">
+          <image src="/images/person1.png" class="all-image"></image>
+          <view class="info-text">
+            <view class="all-name">卢馨雨</view>
+            <view class="all-school">学校：重庆师范大学</view>
+          </view>
+          <image src="{{imgIcon1}}" class="caret-icon"></image>
+        </view>
+
+        <!-- 开发者信息详情，只有点击右边的向下图标，才能显示，并且图标变成向上；点击向上图标则隐藏，图标变成向下 -->
+        <view class="detail-info {{detailStyle1 ? 'show-detail' : 'hide-detail'}}">
+          <view class="detail-line">
+            <p class="all-property">性别</p>女
+          </view>
+          <view class="detail-line">
+            <p class="all-property">年级</p>2017级
+          </view>
+          <view class="detail-line">
+            <p class="all-property">学院</p>计算机与信息科学学院
+          </view>
+          <view class="detail-line">
+            <p class="all-property">专业</p>计算机科学与技术
+          </view>
+          <view class="detail-line">
+            <p class="all-property">描述</p>看到了典典的可爱、积极，乐观，发现典典具有担任主人公的潜质，是典典的呆萌干妈。
+          </view>
+        </view>
+      </view>
+
+      <!-- 第二个 -->
+      <view class="all-person">
+        <!-- 开发者基本信息 -->
+        <view bindtap="showOrHideDetail2">
+          <image src="/images/person2.png" class="all-image"></image>
+          <view class="info-text">
+            <view class="all-name">危紫航</view>
+            <view class="all-school">学校：重庆师范大学</view>
+          </view>
+          <image src="{{imgIcon2}}" class="caret-icon"></image>
+        </view>
+        
+        <!-- 开发者信息详情，只有点击右边的向下图标，才能显示，并且图标变成向上；点击向上图标则隐藏，图标变成向下 -->
+        <view class="detail-info {{detailStyle2 ? 'show-detail' : 'hide-detail'}}">
+          <view class="detail-line">
+            <p class="all-property">性别</p>女
+          </view>
+          <view class="detail-line">
+            <p class="all-property">年级</p>2017级
+          </view>
+          <view class="detail-line">
+            <p class="all-property">学院</p>计算机与信息科学学院
+          </view>
+          <view class="detail-line">
+            <p class="all-property">专业</p>计算机科学与技术
+          </view>
+          <view class="detail-line">
+            <p class="all-property">描述</p>把典典一点点拉扯大，将典典培养的越来越好，在旁看着长大的各位妈们，无不感动落泪，是典典的操心奶妈。
+          </view>
+        </view>
+      </view>
+
+      <!-- 第三个 -->
+      <view class="all-person">
+        <!-- 开发者基本信息 -->
+        <view bindtap="showOrHideDetail3">
+          <image src="/images/person3.png" class="all-image"></image>
+          <view class="info-text">
+            <view class="all-name">黄佳玲</view>
+            <view class="all-school">学校：重庆师范大学</view>
+          </view>
+          <image src="{{imgIcon3}}" class="caret-icon"></image>
+        </view>
+        
+        <!-- 开发者信息详情，只有点击右边的向下图标，才能显示，并且图标变成向上；点击向上图标则隐藏，图标变成向下 -->
+        <view class="detail-info {{detailStyle3 ? 'show-detail' : 'hide-detail'}}">
+          <view class="detail-line">
+            <p class="all-property">性别</p>女
+          </view>
+          <view class="detail-line">
+            <p class="all-property">年级</p>2017级
+          </view>
+          <view class="detail-line">
+            <p class="all-property">学院</p>计算机与信息科学学院
+          </view>
+          <view class="detail-line">
+            <p class="all-property">专业</p>计算机科学与技术
+          </view>
+          <view class="detail-line">
+            <p class="all-property">描述</p>身为五口之家的一家之主，里外兼顾，每天盼着典典快高成长，是典典的温柔小妈。
+          </view>
+        </view>
+      </view>
+
+      <!-- 第四个 -->
+      <view class="all-person">
+        <!-- 开发者基本信息 -->
+        <view bindtap="showOrHideDetail4">
+          <image src="/images/person4.png" class="all-image"></image>
+          <view class="info-text">
+            <view class="all-name">谯皖粤</view>
+            <view class="all-school">学校：重庆师范大学</view>
+          </view>
+          <image src="{{imgIcon4}}" class="caret-icon"></image>
+        </view>
+        
+        <!-- 开发者信息详情，只有点击右边的向下图标，才能显示，并且图标变成向上；点击向上图标则隐藏，图标变成向下 -->
+        <view class="detail-info {{detailStyle4 ? 'show-detail' : 'hide-detail'}}">
+          <view class="detail-line">
+            <p class="all-property">性别</p>女
+          </view>
+          <view class="detail-line">
+            <p class="all-property">年级</p>2018级
+          </view>
+          <view class="detail-line">
+            <p class="all-property">学院</p>计算机与信息科学学院
+          </view>
+          <view class="detail-line">
+            <p class="all-property">专业</p>计算机科学与技术
+          </view>
+          <view class="detail-line">
+            <p class="all-property">描述</p>让可爱的典典诞生于这个世界，使典典成为五口之家的宠宝，是典典的憨憨亲妈。
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </scroll-view>
+</view>

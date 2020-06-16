@@ -1,0 +1,73 @@
+<!--pages/search/search.wxml-->
+<view>
+	<!-- 标题行 -->
+	<view class='nav bg-green' style='height:{{navH}}px'>
+		<view class='nav-title'>
+			<image src='../../images/back.png' mode='aspectFit' class='back' bindtap='navBack'></image>
+			搜索
+		</view>
+	</view>
+	<scroll-view class='overflow' style='height:calc(100vh - {{navH}}px)' scroll-y>
+		<view class='hidden'>
+			<view class="searchTool" style="position:fixed;">
+				<!-- 搜索框 -->
+				<view class="searchBox">
+					<view class="searchIcon">
+						<image class="iconImage" src='/images/searchIcon.png'></image>
+					</view>
+					<input type="text" name="id" value="{{inputValue}}" bindconfirm="formSubmit" bindinput="formSubmit" placeholder="请输入垃圾名称" search="{{formSubmit}}" />
+					<!-- 取消按钮 -->
+					<view class="cancel" bindtap="cancelBack">
+						取消
+					</view>
+				</view>
+				<!--语音识别按钮-->
+				<view>
+					<image class="voice" src="/images/yuyin.png" bindtap="switchToVoice"></image>
+				</view>
+			</view>
+
+			<!-- 显示搜索到的垃圾 -->
+			<view style="margin-top:200rpx">
+				<view wx:for="{{garSearchList}}" wx:key="item">
+					<!-- garbageName -->
+					<view id="{{item.gar_id}}" class="{{searchGar}}" bindtap="tosearchtype">{{item.gar_name}}</view>
+				</view>
+			</view>
+			<!-- 显示搜索不到此垃圾 -->
+			<view class="{{noGarbage}}">
+				搜索不到此垃圾名
+			</view>
+
+			<!-- 显示热搜垃圾 -->
+			<view class="{{hotSearchGar}}">
+				<view class="hot-title">
+					<p class="title-text">热搜榜</p>
+					<image src="/images/hotIcon.png" class="hot-icon"></image>
+				</view>
+				<view class="hot-garbage" wx:for="{{garList}}" wx:key="item">
+					<view class="gartypeName" id="{{item[0].type_id}}" bindtap="switchToClassify">
+						{{item[0].type_name}}
+					</view>
+					<view class="allGarName">
+						<view class="garName" id="{{item[0].gar_id}}" bindtap="switchToSearchtype">
+							<p class="hot-number">1</p>
+							{{item[0].gar_name}}
+							<p class="hot-text">HOT</p>
+						</view>
+						<view class="garName" id="{{item[1].gar_id}}" bindtap="switchToSearchtype">
+							<p class="hot-number">2</p>
+							{{item[1].gar_name}}
+							<p class="hot-text">HOT</p>
+						</view>
+						<view class="garName" id="{{item[2].gar_id}}" bindtap="switchToSearchtype">
+							<p class="hot-number">3</p>
+							{{item[2].gar_name}}
+							<p class="hot-text">HOT</p>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</scroll-view>
+</view>

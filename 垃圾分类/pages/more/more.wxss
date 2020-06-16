@@ -1,0 +1,153 @@
+/* pages/more/more.wxss */
+
+/*自定义导航*/
+
+.nav {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  border-bottom:1px #f0f0f0 solid;
+}
+
+.nav-title {
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
+  font-family: PingFang-SC-Medium;
+  color: #fff;
+  font-size: 30rpx;
+  letter-spacing: 2px;
+}
+
+.nav .back {
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px 15px;
+}
+
+.bg-green {
+  background-color: #65ab31;
+}
+
+.overflow {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.hidden {
+  overflow: hidden;
+}
+
+/***********************************/
+
+/*图片按钮切换*/
+
+.imgbtn {
+  width: 540rpx;
+  margin: 20rpx auto;
+}
+
+/*图片按钮本身样式*/
+
+.serve {
+  width: 242rpx;
+  height: 277rpx;
+  margin-right: 25rpx;
+}
+
+.product {
+  width: 242rpx;
+  height: 277rpx;
+  margin-left: 25rpx;
+}
+
+/*页面所在图片按钮样式*/
+
+.serveclick {
+  width: 242rpx;
+  height: 277rpx;
+  margin-right: 25rpx;
+  border: 1.5px solid #455f90;
+  border-radius: 30rpx;
+  box-shadow: 0px 0px 5px #455f90;
+}
+
+.productclick {
+  width: 242rpx;
+  height: 277rpx;
+  margin-left: 25rpx;
+  border: 1.5px solid #601b1e;
+  border-radius: 30rpx;
+  box-shadow: 0px 0px 5px #601b1e;
+}
+
+/********/
+/*内容容器*/
+.container {
+  margin: 50rpx auto 0rpx;
+  border-top-left-radius: 60rpx;
+  border-top-right-radius: 60rpx;
+  background: #fff;
+  font-family: "黑体";
+}
+/*类别名称*/
+.type {
+  width: 620rpx;
+  margin: -160rpx auto;
+  padding-bottom: 10rpx;
+  padding-left: 30rpx;
+  border-bottom: 1.5px solid #65ab31;
+  font-size: 35rpx;
+  color: #65ab31;
+}
+/*服务/产品内容容器*/
+.content {
+  margin: 170rpx auto 0rpx;
+}
+/*单个服务/产品块容器*/
+.serpro {
+  width: 580rpx;
+  height: 200rpx;
+  font-size: 24rpx;
+  border-bottom: 1px solid #e7e7e7;
+  margin: 40rpx auto;
+}
+/*单个服务/产品右侧容器*/
+.spcontent {
+  text-align: justify;
+  width: 400rpx;
+  margin-left: 190rpx;
+  height: 155rpx;
+}
+/*单个服务/产品图片*/
+.spimg {
+  width: 155rpx;
+  height: 155rpx;
+  border-radius: 20rpx;
+  background: #65ab31;
+  float: left;
+
+}
+/*单个服务/产品名称*/
+.name {
+  width: 400rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+/*单个服务/产品介绍*/
+.introduce {
+  color: #333;
+  margin-bottom: 10rpx;
+  height: 110rpx;
+  line-height: 30rpx; /*新增间距设置*/
+}

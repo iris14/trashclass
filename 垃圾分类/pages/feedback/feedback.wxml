@@ -1,0 +1,38 @@
+<!--pages/feedback/feedback.wxml-->
+<view>
+  <!-- 标题行 -->
+  <view class='nav bg-green' style='height:{{navH}}px'>
+    <view class='nav-title'>
+      <image src='/images/back.png' mode='aspectFit' class='back' bindtap='navBack'></image>
+      帮助
+    </view>
+  </view>
+  <scroll-view class='overflow' style='height:calc(100vh - {{navH}}px)' scroll-y>
+    <view class='hidden'>
+      <!-- 用户反馈行 -->
+      <view class="all-line" bindtap="toUserFeedback">
+        <image src="/images/fankui.png" class="all-texticon"></image>
+        <view class="all-text">用户反馈</view>
+        <image src="/images/go.png" class="all-goicon"></image>
+      </view>
+      <!-- 软件介绍行 -->
+      <view class="all-line" bindtap="toSoftIntroduce">
+        <image src="/images/wanfajieshao1.png" class="all-texticon"></image>
+        <view class="all-text">软件介绍</view>
+        <image src="/images/go.png" class="all-goicon"></image>
+      </view>
+      <!-- 开发者信息行 -->
+      <view class="all-line" bindtap="toDeveloperInfos">
+        <image src="/images/xinxi.png" class="all-texticon"></image>
+        <view class="all-text">开发者信息</view>
+        <image src="/images/go.png" class="all-goicon"></image>
+      </view>
+      <!-- 清除剧情缓存行 -->
+      <view class="all-line" bindtap="clearTestStorage">
+        <image src="/images/clearStorage.png" class="all-texticon"></image>
+        <view class="all-text">清除剧情测试缓存</view>
+        <!-- <image src="/images/go.png" class="all-goicon"></image> -->
+      </view>
+    </view>
+  </scroll-view>
+</view>
